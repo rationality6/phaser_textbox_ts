@@ -29,9 +29,9 @@ export default class Demo extends Phaser.Scene {
       () => {
         if (!this.soundStarted) {
           this.soundStarted = true;
-          new Audio("./public/assets/sounds/tamco09.mp3").play();
+          new Audio("assets/sounds/tamco09.mp3").play();
         }
-        new Audio("./public/assets/sounds/clear_mouse_clicks.wav").play();
+        new Audio("assets/sounds/clear_mouse_clicks.wav").play();
       },
       this
     );
@@ -191,7 +191,7 @@ function textBoxRun({ self, name, content }) {
       .on(
         "pageend",
         function () {
-          new Audio("./public/assets/sounds/keyboard-typing-2.mp3").play();
+          new Audio("assets/sounds/keyboard-typing-2.mp3").play();
           if (self.isLastPage) return;
           let icon = this.getElement("action").setVisible(true);
           this.resetChildVisibleState(icon);
