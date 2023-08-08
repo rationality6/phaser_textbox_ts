@@ -1,6 +1,8 @@
 import Phaser from "phaser";
 
 export default class Demo extends Phaser.Scene {
+  soundStarted!: boolean;
+
   constructor() {
     super("GameScene");
   }
@@ -22,6 +24,18 @@ export default class Demo extends Phaser.Scene {
   }
 
   async create() {
+    this.input.on(
+      "pointerdown",
+      () => {
+        if (!this.soundStarted) {
+          this.soundStarted = true;
+          new Audio("./public/assets/sounds/tamco09.mp3").play();
+        }
+        new Audio("./public/assets/sounds/clear_mouse_clicks.wav").play();
+      },
+      this
+    );
+
     this.cameras.main.setBackgroundColor("transparent");
     this.cameras.main.fadeIn(1000, 255, 255, 255);
     const cowgirl = this.add.image(-100, -30, "cowgirl1").setOrigin(0, 0);
@@ -59,8 +73,8 @@ const TEXT1 = `
 자신을 사랑할 줄 아는 사람은 세상을
  사랑합니다.
 
-세상을 사랑하는 사람들은 불의에 대해 분노할
- 줄 알고, 저항합니다
+세상을 사랑하는 사람들은 불의에 대해
+  분노할 줄 알고, 저항합니다
 
 우리에게는 수많은 도전을 극복한 저력이
  있습니다.
@@ -74,19 +88,19 @@ const TEXT1 = `
 `;
 
 const TEXT2 = `
-카눈이 오는구나…
+태풍 카눈이 오는구나…
 
 
 퇴근하면 제육볶음을 먹어야겠다. yo
 
 
 군복무 마친 10대 군필 여고생
- 클량멤버분들 모두 감사합니다.
+ 끌량멤버분들 모두 감사합니다.
 
 
 일러스트: AI그림당 멍멍개찜님 작품
 
-`
+`;
 
 const COLOR_PRIMARY = 0x4e342e;
 const COLOR_LIGHT = 0x7b5e57;
@@ -117,7 +131,7 @@ function textBoxRun({ self, name, content }) {
         }),
 
         title: self.rexUI.add.label({
-          width: 200,
+          width: 150,
           background: self.rexUI.add.roundRectangle({
             radius: 10,
             color: COLOR_PRIMARY,
@@ -177,6 +191,7 @@ function textBoxRun({ self, name, content }) {
       .on(
         "pageend",
         function () {
+          new Audio("./public/assets/sounds/keyboard-typing-2.mp3").play();
           if (self.isLastPage) return;
           let icon = this.getElement("action").setVisible(true);
           this.resetChildVisibleState(icon);
