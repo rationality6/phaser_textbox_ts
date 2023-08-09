@@ -16,6 +16,7 @@ export default defineConfig({
           preventAssignment: true,
         })
       ]
-    }
+    },
+    chunkSizeWarningLimit: 500
   }
 });
