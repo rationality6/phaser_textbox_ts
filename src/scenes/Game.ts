@@ -42,7 +42,7 @@ export default class Demo extends Phaser.Scene {
 
     await textBoxRun({
       self: this,
-      name: "클최미",
+      name: "SDK",
       content: TEXT1,
     });
 
@@ -54,15 +54,14 @@ export default class Demo extends Phaser.Scene {
 
     await textBoxRun({
       self: this,
-      name: "클최미",
+      name: "SDK",
       content: TEXT2,
     });
   }
 }
 
 const TEXT1 = `
-안녕하세요 끌량 여러분.
-
+안녕하세요 다먕 여러분.
 
 반갑습니다.
 
@@ -84,21 +83,13 @@ const TEXT1 = `
 
 그런 지혜와 저력으로 우리에게 닥친 도전을
  극복합니다.
-
+.
 `;
 
 const TEXT2 = `
-태풍 카눈이 오는구나…
+앙떡볶이가 앙볼로 피자로 다시 왔습니다~
 
-
-퇴근하면 제육볶음을 먹어야겠다. yo
-
-
-군복무 마친 10대 군필 여고생
- 끌량멤버분들 모두 감사합니다.
-
-
-일러스트: AI그림당 멍멍개찜님 작품
+앙볼로 피자 많이 먹어주세요~
 
 `;
 
